@@ -1,3 +1,15 @@
+since we are using H2 in memory database
+
+CREATE USER MY_LIBRARY PASSWORD 'rush2##2hsur';
+SELECT * FROM INFORMATION_SCHEMA.USERS WHERE USER_NAME = 'MY_LIBRARY';
+ALTER USER MY_LIBRARY ADMIN TRUE
+
+Then logout from sa user
+and login with
+<img width="455" height="383" alt="image" src="https://github.com/user-attachments/assets/299d0160-10ed-40bd-9dd3-1d4b1e640f76" />
+
+
+
 # MyBookStore
 MyBookStore-With-Oauth2-and-JWT
 Step 1
