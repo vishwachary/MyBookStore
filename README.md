@@ -10,6 +10,44 @@ and login with
 
 
 
+
+
+
+
+-- Users table
+CREATE TABLE Users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    role ENUM('admin', 'user') NOT NULL
+);
+
+-- Authors table
+CREATE TABLE Authors (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    bio TEXT
+);
+
+-- Catalogs table
+CREATE TABLE Catalogs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+-- Books table
+CREATE TABLE Books (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    author_id INT NOT NULL,
+    catalog_id INT NOT NULL,
+    summary TEXT,
+    FOREIGN KEY (author_id) REFERENCES Authors(id) ON DELETE CASCADE,
+    FOREIGN KEY (catalog_id) REFERENCES Catalogs(id) ON DELETE CASCADE
+);
+
+
+
 # MyBookStore
 MyBookStore-With-Oauth2-and-JWT
 Step 1
