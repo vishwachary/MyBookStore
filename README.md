@@ -1,3 +1,8 @@
+ git pull origin main --rebase
+  git push origin main
+
+
+
 since we are using H2 in memory database
 
 CREATE USER MY_LIBRARY PASSWORD 'rush2##2hsur';
