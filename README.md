@@ -14,6 +14,9 @@ and login with
 
 
 
+Edit	SET SCHEMA MY_LIBRARY
+Edit	CREATE SCHEMA IF NOT EXISTS MY_LIBRARY
+
 -- Users table
 CREATE TABLE Users (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -45,6 +48,7 @@ CREATE TABLE Books (
     FOREIGN KEY (author_id) REFERENCES Authors(id) ON DELETE CASCADE,
     FOREIGN KEY (catalog_id) REFERENCES Catalogs(id) ON DELETE CASCADE
 );
+
 
 
 
