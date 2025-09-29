@@ -1,0 +1,9 @@
+package org.example.mybookstore.repository;
+
+import org.example.mybookstore.entity.Author;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AuthorRepository extends JpaRepository<Author,Integer>
+{
+
+}
