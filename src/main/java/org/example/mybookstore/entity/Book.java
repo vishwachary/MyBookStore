@@ -9,7 +9,7 @@ import org.hibernate.annotations.OnDeleteAction;
 @Getter
 @Setter
 @Entity
-@Table(name = "BOOKS", schema = "MY_LIBRARY")
+@Table(name = "BOOKS")
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
