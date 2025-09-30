@@ -5,22 +5,6 @@
 
 since we are using H2 in memory database
 
-CREATE USER MY_LIBRARY PASSWORD 'rush2##2hsur';
-SELECT * FROM INFORMATION_SCHEMA.USERS WHERE USER_NAME = 'MY_LIBRARY';
-ALTER USER MY_LIBRARY ADMIN TRUE
-
-Then logout from sa user
-and login with
-<img width="455" height="383" alt="image" src="https://github.com/user-attachments/assets/299d0160-10ed-40bd-9dd3-1d4b1e640f76" />
-
-
-
-
-
-
-
-Edit	SET SCHEMA MY_LIBRARY
-Edit	CREATE SCHEMA IF NOT EXISTS MY_LIBRARY
 
 -- Users table
 CREATE TABLE Users (
@@ -55,6 +39,52 @@ CREATE TABLE Books (
 );
 
 
+-- Insert Users
+INSERT INTO Users (name, email, role) VALUES
+('Alice', 'alice@gmail.com', 'admin'),
+('Bob', 'bob@gmail.com', 'user');
+
+-- Insert Authors
+INSERT INTO Authors (name, bio) VALUES
+('J.K. Rowling', NULL),
+('George R.R. Martin', NULL),
+('J.R.R. Tolkien', NULL),
+('Agatha Christie', NULL),
+('Stephen King', NULL),
+('Neil Gaiman', NULL);
+
+-- Insert Catalogs
+INSERT INTO Catalogs (name) VALUES
+('Action'),
+('Adventure'),
+('Fiction'),
+('GradmaStories');
+
+-- Insert Books
+INSERT INTO Books (title, author_id, catalog_id, summary) VALUES
+('Harry Potter and the Sorcerer''s Stone', 1, 2, NULL),
+('Harry Potter and the Chamber of Secrets', 1, 2, NULL),
+('Harry Potter and the Prisoner of Azkaban', 1, 2, NULL),
+('A Game of Thrones', 2, 1, NULL),
+('A Clash of Kings', 2, 1, NULL),
+('A Storm of Swords', 2, 1, NULL),
+('The Hobbit', 3, 2, NULL),
+('The Lord of the Rings: Fellowship', 3, 2, NULL),
+('The Lord of the Rings: Two Towers', 3, 2, NULL),
+('Murder on the Orient Express', 4, 3, NULL),
+('And Then There Were None', 4, 3, NULL),
+('The Shining', 5, 1, NULL),
+('IT', 5, 1, NULL),
+('Misery', 5, 3, NULL),
+('Coraline', 6, 3, NULL),
+('American Gods', 6, 3, NULL),
+('Neverwhere', 6, 2, NULL),
+('Fantastic Beasts', 1, 2, NULL),
+('The Silmarillion', 3, 2, NULL),
+('The Winds of Winter', 2, 1, NULL),
+('The Casual Vacancy', 1, 3, NULL),
+('Sleeping Beauties', 5, 3, NULL),
+('Stardust', 6, 2, NULL);
 
 
 # MyBookStore
