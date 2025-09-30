@@ -1,5 +1,6 @@
-package org.example.mybookstore;
+package org.example.mybookstore.dto;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,11 +10,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class BookDto {
+public class AuthorDto {
 
     private Long id;
-    private String title;
-    private String summary;
-    private String authorName;
-    private String catalogName;
+    private String name;
+    private String bio;
 }
