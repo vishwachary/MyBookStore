@@ -1,3 +1,11 @@
+NOTE:
+dont checkn the secrets to github , github will not allow to push if you have secrets in application.properties
+spring.security.oauth2.client.registration.google.client-id=511238015701-7k3g79ts02vk8ejbuu2gl6dg7kfvertp.apps.googleusercontent.com
+spring.security.oauth2.client.registration.google.client-secret=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
+spring.security.oauth2.client.registration.google.scope=openid,profile,email
+  
+  
+  
   git pull origin main --rebase
   git push origin main
 
