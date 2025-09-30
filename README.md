@@ -69,29 +69,30 @@ INSERT INTO Catalogs (name) VALUES
 
 
 INSERT INTO Books (title, author_id, catalog_id, summary) VALUES
-('Harry Potter and the Sorcerer''s Stone', 1, 2, NULL),
-('Harry Potter and the Chamber of Secrets', 1, 2, NULL),
-('Harry Potter and the Prisoner of Azkaban', 1, 2, NULL),
-('A Game of Thrones', 2, 1, NULL),
-('A Clash of Kings', 2, 1, NULL),
-('A Storm of Swords', 2, 1, NULL),
-('The Hobbit', 3, 2, NULL),
-('The Lord of the Rings: Fellowship', 3, 2, NULL),
-('The Lord of the Rings: Two Towers', 3, 2, NULL),
-('Murder on the Orient Express', 4, 3, NULL),
-('And Then There Were None', 4, 3, NULL),
-('The Shining', 5, 1, NULL),
-('IT', 5, 1, NULL),
-('Misery', 5, 3, NULL),
-('Coraline', 6, 3, NULL),
-('American Gods', 6, 3, NULL),
-('Neverwhere', 6, 2, NULL),
-('Fantastic Beasts', 1, 2, NULL),
-('The Silmarillion', 3, 2, NULL),
-('The Winds of Winter', 2, 1, NULL),
-('The Casual Vacancy', 1, 3, NULL),
-('Sleeping Beauties', 5, 3, NULL),
-('Stardust', 6, 2, NULL);
+('Harry Potter and the Sorcerer''s Stone', 1, 2, 'Harry discovers he is a wizard and begins his studies at Hogwarts.'),
+('Harry Potter and the Chamber of Secrets', 1, 2, 'Harry returns to Hogwarts and faces the mystery of the Chamber of Secrets.'),
+('Harry Potter and the Prisoner of Azkaban', 1, 2, 'Harry learns the truth about Sirius Black and his parents'' past.'),
+('A Game of Thrones', 2, 1, 'Noble families vie for control of the Iron Throne in Westeros.'),
+('A Clash of Kings', 2, 1, 'The Seven Kingdoms descend into war as kings rise and fall.'),
+('A Storm of Swords', 2, 1, 'Betrayals and battles reshape the fate of Westeros.'),
+('The Hobbit', 3, 2, 'Bilbo Baggins embarks on a quest with dwarves to reclaim their treasure.'),
+('The Lord of the Rings: Fellowship', 3, 2, 'Frodo begins his journey to destroy the One Ring.'),
+('The Lord of the Rings: Two Towers', 3, 2, 'The Fellowship is split, and Middle-earth prepares for war.'),
+('Murder on the Orient Express', 4, 3, 'Poirot investigates a murder aboard a snowbound luxury train.'),
+('And Then There Were None', 4, 3, 'Ten strangers are lured to an island and mysteriously killed one by one.'),
+('The Shining', 5, 1, 'A family is trapped in a haunted hotel with terrifying consequences.'),
+('IT', 5, 1, 'A group of children battle a shape-shifting monster in Derry, Maine.'),
+('Misery', 5, 3, 'A writer is held captive by a fan who forces him to rewrite his story.'),
+('Coraline', 6, 3, 'A young girl discovers a sinister parallel world behind a secret door.'),
+('American Gods', 6, 3, 'Shadow becomes entangled in a war between old gods and new.'),
+('Neverwhere', 6, 2, 'Richard Mayhew falls into a magical London Below filled with danger.'),
+('Fantastic Beasts', 1, 2, 'A magical guidebook to the creatures of the wizarding world.'),
+('The Silmarillion', 3, 2, 'A mythic history of Middle-earth from its creation to the First Age.'),
+('The Winds of Winter', 2, 1, 'The next book in the saga of Westeros, full of war and intrigue.'),
+('The Casual Vacancy', 1, 3, 'A small English town faces upheaval after a local official dies.'),
+('Sleeping Beauties', 5, 3, 'A strange plague causes women to fall asleep in cocoons.'),
+('Stardust', 6, 2, 'A young man crosses into a magical realm to find a fallen star.');
+
 
 
 # MyBookStore
