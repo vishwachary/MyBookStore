@@ -1,4 +1,4 @@
- git pull origin main --rebase
+  git pull origin main --rebase
   git push origin main
 
 
@@ -46,6 +46,8 @@ INSERT INTO Users (name, email, role) VALUES
 ('Bob', 'bob@gmail.com', 'user');
 
 -- Insert Authors
+
+
 INSERT INTO Authors (name, bio) VALUES
 ('J.K. Rowling', NULL),
 ('George R.R. Martin', NULL),
@@ -55,6 +57,8 @@ INSERT INTO Authors (name, bio) VALUES
 ('Neil Gaiman', NULL);
 
 -- Insert Catalogs
+
+
 INSERT INTO Catalogs (name) VALUES
 ('Action'),
 ('Adventure'),
@@ -62,6 +66,8 @@ INSERT INTO Catalogs (name) VALUES
 ('GradmaStories');
 
 -- Insert Books
+
+
 INSERT INTO Books (title, author_id, catalog_id, summary) VALUES
 ('Harry Potter and the Sorcerer''s Stone', 1, 2, NULL),
 ('Harry Potter and the Chamber of Secrets', 1, 2, NULL),
