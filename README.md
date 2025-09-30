@@ -40,6 +40,7 @@ CREATE TABLE Books (
 
 
 -- Insert Users
+
 INSERT INTO Users (name, email, role) VALUES
 ('Alice', 'alice@gmail.com', 'admin'),
 ('Bob', 'bob@gmail.com', 'user');
