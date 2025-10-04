@@ -148,3 +148,42 @@ Spring Boot validates JWT on every API call.
 Since it issued the JWT, it knows the secret key to validate it.
 
 Checks the roles claim → decides whether to allow GET/POST/DELETE.
+
+Approach 1 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Session-based Authentication (Google OAuth2 Login)
+
+Entry point: The SecurityFilterChain is the first gate for every incoming request (before DispatcherServlet).
+
+What happens:
+
+User requests a protected endpoint (e.g., /api/v1/books).
+
+Spring Security sees the user is not authenticated → redirects to Google OAuth2 login.
+
+User logs in at Google → Google sends an authorization code back.
+
+Spring exchanges the code for tokens (access token + ID token) and fetches user profile info.
+
+Spring Security stores the user in the session (via JSESSIONID cookie).
+
+From now on, browser requests automatically include the session cookie → the SecurityFilterChain validates it and lets the request through.
+
+Key characteristics:
+
+Works well for web apps (browser + server).
+
+Relies on server-side session and cookies.
+
+API calls from the same browser session work automatically.
+
+External systems (Postman, mobile apps) would struggle — unless you hack in cookies.
+
+
+Approach 2 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
+
+
