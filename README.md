@@ -149,7 +149,7 @@ Since it issued the JWT, it knows the secret key to validate it.
 
 Checks the roles claim → decides whether to allow GET/POST/DELETE.
 
-Approach 1 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Approach 1 :::::::::::::::::::::::::::::::::::::::::::::::::Session-based (Approach 1) Stateful::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Session-based Authentication (Google OAuth2 Login)
 
@@ -180,7 +180,7 @@ API calls from the same browser session work automatically.
 External systems (Postman, mobile apps) would struggle — unless you hack in cookies.
 
 
-Approach 2 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Approach 2 ::::::::::::::::::::::::::::::::::::::::::Token/JWT-based Authentication (Stateless)::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
 
