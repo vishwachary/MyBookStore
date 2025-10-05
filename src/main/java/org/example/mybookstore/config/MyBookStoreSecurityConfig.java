@@ -37,6 +37,7 @@ public class MyBookStoreSecurityConfig {
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception
     {
+        System.out.println("I am security filter for DEV NO ROLES");
          http.authorizeHttpRequests(
                  authorize ->
                          authorize

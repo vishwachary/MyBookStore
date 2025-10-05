@@ -1,5 +1,6 @@
 package org.example.mybookstore.security;
 
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -15,20 +16,28 @@ public class MyBookStoreSecurityConfigWithRoles {
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http,
-                                    CustomOAuth2UserService customOAuth2UserService) throws Exception {
+                                    CustomOidcUserService customOidcUserService) throws Exception {
+        System.out.println("Injected CustomOidcUserService: " + customOidcUserService);
+
         http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/", "/login", "/css/**", "/js/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/books").hasAnyRole("USER", "ADMIN")
-                        .requestMatchers(HttpMethod.POST, "/api/books").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/api/v1/books").hasAnyRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/api/v1/books").hasRole("ADMIN")
                         .anyRequest().authenticated()
+                ) .exceptionHandling(ex -> ex
+                        .accessDeniedHandler((request, response, accessDeniedException) -> {
+                            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+                            response.setContentType("application/json");
+                            response.getWriter().write("{\"error\": \"You don’t have permission to access this resource.\"}");
+                        })
                 )
                 .oauth2Login(oauth2 -> oauth2
-                        .userInfoEndpoint(u -> u.userService(customOAuth2UserService))
+                        .userInfoEndpoint(u -> u.oidcUserService(customOidcUserService))
                         .defaultSuccessUrl("/dashboard", true)
+
                 );
 
         return http.build();
     }
 }
-
