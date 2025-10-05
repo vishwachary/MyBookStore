@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard - My Bookstore</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        #booksTable {
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to Your Dashboard</h1>
+
+<p th:if="${name} != null">
+    Logged in as: <strong th:text="${name}"></strong><br>
+    Email: <strong th:text="${email}"></strong>
+</p>
+
+<p th:if="${name} == null">
+    You are not logged in.
+</p>
+
+<!-- Container where table will be inserted -->
+<div id="booksTable">Loading books...</div>
+
+<a href="/">Back to Home</a>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        fetch("/api/v1/books")
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error("Failed to fetch books. Status: " + res.status);
+                }
+                return res.json();
+            })
+            .then(data => {
+                if (!Array.isArray(data)) {
+                    throw new Error("Invalid data format (expected array)");
+                }
+                let table = "<table><thead><tr><th>ID</th><th>Title</th><th>Author</th><th>Catalog</th><th>Summary</th></tr></thead><tbody>";
+                data.forEach(book => {
+                    table += `<tr>
+                                <td>${book.id}</td>
+                                <td>${book.title}</td>
+                                <td>${book.authorName}</td>
+                                <td>${book.catalogName}</td>
+                                <td>${book.summary}</td>
+                              </tr>`;
+                });
+                table += "</tbody></table>";
+                document.getElementById("booksTable").innerHTML = table;
+            })
+            .catch(err => {
+                document.getElementById("booksTable").innerHTML =
+                    "<p class='error'>Error: " + err.message + "</p>";
+                console.error("Error fetching books:", err);
+            });
+    });
+</script>
+</body>
+</html>
